@@ -55,4 +55,4 @@
 
 (defun processes ()
   (let ((proc-paths (processes-dirs)))
-    ))
+    (mapcar #'create-process proc-paths)))
