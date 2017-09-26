@@ -6,4 +6,5 @@
   (:nicknames
    #:procps)
   (:export
-   ))
+   #:process
+   #:processes))
