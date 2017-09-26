@@ -8,14 +8,18 @@
   ((pid
     :type integer
     :initarg :pid)
+   (start-time
+    :type integer
+    :initarg :start-time)
    (cmdline
     :type list
     :initarg :cmdline)))
 
 (defmethod print-object ((process process) stream)
-  (with-slots (pid cmdline)
+  (with-slots (pid start-time cmdline)
       process
-    (format stream "#<PROCESS pid: ~a, cmdline: ~a>" pid cmdline)))
+    (format stream "#<PROCESS pid: ~a, start-time: ~a, cmdline: ~a>"
+            pid start-time cmdline)))
 
 (defun pathname-last (pathname)
   (let ((components (pathname-directory pathname)))
@@ -48,9 +52,13 @@
          else
          do (setf current-word (cons char current-word))))))
 
+(defun read-start-time (process-path)
+  (file-write-date process-path))
+
 (defun create-process (process-path)
   (make-instance 'process
                  :pid (parse-integer (pathname-last process-path))
+                 :start-time (read-start-time process-path)
                  :cmdline (read-cmdline process-path)))
 
 (defun processes ()
