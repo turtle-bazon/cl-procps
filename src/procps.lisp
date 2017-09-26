@@ -53,7 +53,8 @@
          do (setf current-word (cons char current-word))))))
 
 (defun read-start-time (process-path)
-  (file-write-date process-path))
+  (let ((cmdline (merge-pathnames process-path "/cmdline")))
+    (file-write-date cmdline)))
 
 (defun create-process (process-path)
   (make-instance 'process
