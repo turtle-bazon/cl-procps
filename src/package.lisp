@@ -7,4 +7,7 @@
    #:procps)
   (:export
    #:process
+   #:pid
+   #:start-time
+   #:cmdline
    #:processes))
