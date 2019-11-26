@@ -11,4 +11,5 @@
    #:pid
    #:start-time
    #:cmdline
-   #:processes))
+   #:processes
+   #:meminfo))
