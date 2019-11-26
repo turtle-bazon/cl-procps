@@ -18,7 +18,8 @@
                     (substitute #\. #\(
                                 (substitute #\. #\)
                                             (let ((name (car parts)))
-                                              (subseq name 0 (- (length name) 1))))))))
+                                              (subseq name 0 (- (length name) 1))))))
+                   :keyword))
          (value (parse-integer (car (cdr parts)))))
     (cons name-kw (* value multiplier))))
 
