@@ -2,7 +2,8 @@
 
 (defpackage #:cl-procps
   (:use
-   #:cl)
+   #:cl
+   #:split-sequence)
   (:nicknames
    #:procps)
   (:export
